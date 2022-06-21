@@ -75,11 +75,9 @@ namespace WebApiCodeFirst.Controllers
 
             StringContent Con = new StringContent(data, Encoding.UTF8, "application/json");
 
-            //jump
+            
+            HttpResponseMessage res = Client.PostAsync(Client.BaseAddress + "post/data", Con).Result;  // jumping in api
 
-            HttpResponseMessage res = Client.PostAsync(Client.BaseAddress + "post/data", Con).Result;
-
-            //get data all good or not
 
             return RedirectToAction("Index", "Home");
         }
